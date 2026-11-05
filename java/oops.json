@@ -1,0 +1,2172 @@
+{
+  "topicId": "java-oop",
+  "topicName": "Object-Oriented Programming (OOP)",
+  "subject": "Java",
+  "description": "Comprehensive, interview-focused Java OOP preparation with core concepts, conceptual questions, tricky Java rules, real-world scenarios and coding examples.",
+  "difficulty": "Beginner to Advanced",
+  "estimatedReadTime": "90-120 minutes",
+  "prerequisites": [
+    "Java classes and objects",
+    "Basic methods and constructors",
+    "Basic inheritance syntax"
+  ],
+  "concepts": [
+    {
+      "id": "oop-concept-01",
+      "name": "Class",
+      "definition": "A blueprint that defines the fields and methods objects of that type can have.",
+      "realWorldExample": "A Car class can define colour, model, and start().",
+      "javaNotes": [
+        "Know the purpose of the concept, not only its definition.",
+        "Be able to explain the concept with a small Java example.",
+        "Choose the design that preserves clear responsibilities and low coupling."
+      ]
+    },
+    {
+      "id": "oop-concept-02",
+      "name": "Object",
+      "definition": "A runtime instance of a class, with identity, state, and behaviour.",
+      "realWorldExample": "car1 and car2 can be separate Car objects with different colours.",
+      "javaNotes": [
+        "Know the purpose of the concept, not only its definition.",
+        "Be able to explain the concept with a small Java example.",
+        "Choose the design that preserves clear responsibilities and low coupling."
+      ]
+    },
+    {
+      "id": "oop-concept-03",
+      "name": "Encapsulation",
+      "definition": "Bundling data and the methods that operate on it while controlling access to internal state.",
+      "realWorldExample": "A BankAccount keeps balance private and validates deposit and withdrawal operations.",
+      "javaNotes": [
+        "Know the purpose of the concept, not only its definition.",
+        "Be able to explain the concept with a small Java example.",
+        "Choose the design that preserves clear responsibilities and low coupling."
+      ]
+    },
+    {
+      "id": "oop-concept-04",
+      "name": "Abstraction",
+      "definition": "Exposing essential operations while hiding implementation details.",
+      "realWorldExample": "A PaymentGateway exposes pay() while hiding whether payment uses UPI or a card.",
+      "javaNotes": [
+        "Know the purpose of the concept, not only its definition.",
+        "Be able to explain the concept with a small Java example.",
+        "Choose the design that preserves clear responsibilities and low coupling."
+      ]
+    },
+    {
+      "id": "oop-concept-05",
+      "name": "Inheritance",
+      "definition": "A mechanism through which a subclass derives accessible state and behaviour from a superclass.",
+      "realWorldExample": "SavingsAccount extends Account when it is genuinely a specialised kind of account.",
+      "javaNotes": [
+        "Know the purpose of the concept, not only its definition.",
+        "Be able to explain the concept with a small Java example.",
+        "Choose the design that preserves clear responsibilities and low coupling."
+      ]
+    },
+    {
+      "id": "oop-concept-06",
+      "name": "Polymorphism",
+      "definition": "The ability to use a common type for objects with different implementations.",
+      "realWorldExample": "A Payment reference can point to UpiPayment or CardPayment.",
+      "javaNotes": [
+        "Know the purpose of the concept, not only its definition.",
+        "Be able to explain the concept with a small Java example.",
+        "Choose the design that preserves clear responsibilities and low coupling."
+      ]
+    },
+    {
+      "id": "oop-concept-07",
+      "name": "Association, Aggregation and Composition",
+      "definition": "Object relationship patterns: association is a general link, aggregation is a weaker whole-part relationship, and composition expresses stronger ownership.",
+      "realWorldExample": "A doctor treats patients (association); a department has professors (aggregation); an order owns its line items (composition).",
+      "javaNotes": [
+        "Know the purpose of the concept, not only its definition.",
+        "Be able to explain the concept with a small Java example.",
+        "Choose the design that preserves clear responsibilities and low coupling."
+      ]
+    },
+    {
+      "id": "oop-concept-08",
+      "name": "Constructor",
+      "definition": "A special class member used to initialize a new object; it has the class name and no return type.",
+      "realWorldExample": "new Employee(\"Asha\") invokes a matching Employee constructor.",
+      "javaNotes": [
+        "Know the purpose of the concept, not only its definition.",
+        "Be able to explain the concept with a small Java example.",
+        "Choose the design that preserves clear responsibilities and low coupling."
+      ]
+    },
+    {
+      "id": "oop-concept-09",
+      "name": "Interface and Abstract Class",
+      "definition": "Both define abstractions; interfaces primarily express contracts, while abstract classes can also share state and implementation.",
+      "realWorldExample": "EmailSender and SmsSender implement NotificationSender; AbstractReport can share report workflow.",
+      "javaNotes": [
+        "Know the purpose of the concept, not only its definition.",
+        "Be able to explain the concept with a small Java example.",
+        "Choose the design that preserves clear responsibilities and low coupling."
+      ]
+    }
+  ],
+  "interviewQuestions": {
+    "conceptual": [
+      {
+        "id": "conceptual-01",
+        "question": "What is object-oriented programming (OOP)?",
+        "difficulty": "Beginner",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "OOP organizes software around objects that combine state and behaviour.",
+          "detailedAnswer": "It models domain entities and the responsibilities they perform. Its four commonly cited pillars are encapsulation, abstraction, inheritance and polymorphism.",
+          "realWorldExample": "A shopping application can model Customer, Product, Cart and Order as collaborating objects.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "OOP organizes software around objects that combine state and behaviour.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What are the four pillars of OOP?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "What are the advantages and disadvantages of OOP?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-02",
+        "question": "What is the difference between a class and an object?",
+        "difficulty": "Beginner",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "A class is a blueprint; an object is a runtime instance of that blueprint.",
+          "detailedAnswer": "A class declares the fields and methods its objects can have. Each object has its own instance state, while static members belong to the class.",
+          "realWorldExample": "Employee defines name and salary; employee1 and employee2 are separate Employee objects.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "A class is a blueprint; an object is a runtime instance of that blueprint.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can one class create multiple objects?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Where are objects stored in Java?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-03",
+        "question": "Explain encapsulation in Java.",
+        "difficulty": "Beginner",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Encapsulation protects an object's state by keeping fields private and exposing controlled operations.",
+          "detailedAnswer": "Methods validate changes and preserve business rules. It is more than generating getters and setters; the goal is to prevent invalid state and hide representation.",
+          "realWorldExample": "A bank account exposes deposit() and withdraw() rather than a public balance field.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Encapsulation protects an object's state by keeping fields private and exposing controlled operations.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Is using getters and setters alone sufficient for encapsulation?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "How does encapsulation improve maintainability?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-04",
+        "question": "What is abstraction?",
+        "difficulty": "Beginner",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Abstraction exposes essential behaviour and hides implementation details.",
+          "detailedAnswer": "Callers depend on a contract rather than implementation steps. Java supports abstraction through interfaces and abstract classes.",
+          "realWorldExample": "A caller invokes paymentService.pay() without knowing whether payment uses UPI or a card.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Abstraction exposes essential behaviour and hides implementation details.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Abstraction versus encapsulation?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Can interfaces contain implemented methods?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-05",
+        "question": "Explain inheritance with an example.",
+        "difficulty": "Beginner",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Inheritance lets a subclass extend a superclass using extends.",
+          "detailedAnswer": "The subclass inherits accessible members and can add or override eligible behaviour. It should represent a valid is-a relationship.",
+          "realWorldExample": "SavingsAccount extends Account and adds interest calculation.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Inheritance lets a subclass extend a superclass using extends.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Does Java support multiple class inheritance?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Why is composition often preferred?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-06",
+        "question": "What is polymorphism?",
+        "difficulty": "Beginner",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Polymorphism lets one common type represent different concrete implementations.",
+          "detailedAnswer": "A superclass or interface reference can point to different objects. Overridden instance methods are selected according to the runtime object's class.",
+          "realWorldExample": "List<String> list = new ArrayList<>(); uses the List contract with an ArrayList implementation.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Polymorphism lets one common type represent different concrete implementations.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Overloading versus overriding?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "What is dynamic method dispatch?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-07",
+        "question": "What are the four pillars of OOP?",
+        "difficulty": "Beginner",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "The four commonly cited pillars are encapsulation, abstraction, inheritance and polymorphism.",
+          "detailedAnswer": "Encapsulation protects state; abstraction hides implementation details; inheritance models specialization; polymorphism enables interchangeable implementations.",
+          "realWorldExample": "A payment interface hides provider details, while different implementations process payments differently.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "The four commonly cited pillars are encapsulation, abstraction, inheritance and polymorphism.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Give a real-world example of each pillar.",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Are association and composition OOP pillars?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-08",
+        "question": "What is the difference between abstraction and encapsulation?",
+        "difficulty": "Beginner",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Abstraction hides implementation complexity; encapsulation controls access to internal state and representation.",
+          "detailedAnswer": "Abstraction focuses on what is exposed to a caller. Encapsulation bundles data and behaviour and protects the object's invariants.",
+          "realWorldExample": "A car's start() operation is an abstraction; private account balance with validated methods is encapsulation.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Abstraction hides implementation complexity; encapsulation controls access to internal state and representation.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can abstraction exist without encapsulation?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Which access modifiers help encapsulation?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-09",
+        "question": "What is method overloading?",
+        "difficulty": "Beginner",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Overloading declares methods with the same name but different parameter lists.",
+          "detailedAnswer": "The compiler selects an applicable overload using argument types and overload-resolution rules. Return type alone cannot distinguish overloads.",
+          "realWorldExample": "Calculator can define add(int,int) and add(double,double).",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Overloading declares methods with the same name but different parameter lists.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can methods be overloaded by changing only return type?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Can static methods be overloaded?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-10",
+        "question": "What is method overriding?",
+        "difficulty": "Beginner",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Overriding occurs when a subclass provides a compatible implementation of an inherited instance method.",
+          "detailedAnswer": "Runtime dispatch selects the override based on the actual object. An override cannot reduce visibility or broaden checked exceptions beyond Java's rules.",
+          "realWorldExample": "Dog overrides Animal.sound(); an Animal reference to Dog invokes Dog.sound().",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Overriding occurs when a subclass provides a compatible implementation of an inherited instance method.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can private methods be overridden?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "What does @Override do?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-11",
+        "question": "Overloading versus overriding: what is the difference?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Overloading changes the parameter list and is resolved at compile time; overriding replaces inherited instance behaviour and uses runtime dispatch.",
+          "detailedAnswer": "Overloading is commonly called compile-time polymorphism. Overriding is the main form of runtime polymorphism.",
+          "realWorldExample": "Calculator overloads add(); Dog overrides Animal.sound().",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Overloading changes the parameter list and is resolved at compile time; overriding replaces inherited instance behaviour and uses runtime dispatch.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can constructors be overloaded?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Can static methods be overridden?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-12",
+        "question": "What is a constructor in Java?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "A constructor initializes a new object and has the same name as its class, with no return type.",
+          "detailedAnswer": "Constructors can be overloaded but are not inherited or overridden. Java supplies an implicit no-argument constructor only when no constructor is declared.",
+          "realWorldExample": "new User(\"Ravi\") invokes a matching constructor.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "A constructor initializes a new object and has the same name as its class, with no return type.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Is a constructor inherited?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "What is a default constructor?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-13",
+        "question": "Explain this and super.",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "this refers to the current object; super is used to access superclass members or invoke a superclass constructor.",
+          "detailedAnswer": "this() chains to another constructor in the same class. super() invokes a superclass constructor. An explicit constructor invocation must be first.",
+          "realWorldExample": "this.name = name assigns the current object's field; super.display() invokes the superclass implementation.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "this refers to the current object; super is used to access superclass members or invoke a superclass constructor.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can this() and super() both be called in the same constructor?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Can super directly access a private parent field?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-14",
+        "question": "What is an abstract class?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "An abstract class cannot be instantiated directly and can contain abstract and concrete methods.",
+          "detailedAnswer": "It can have constructors and instance fields. It is useful when related subclasses share state or common implementation while completing some behaviour.",
+          "realWorldExample": "AbstractReport shares header generation and requires subclasses to implement body generation.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "An abstract class cannot be instantiated directly and can contain abstract and concrete methods.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can an abstract class have a constructor?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Can it have no abstract methods?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-15",
+        "question": "What is an interface?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "An interface defines a contract that implementing classes agree to provide.",
+          "detailedAnswer": "A class can implement multiple interfaces. Modern Java interfaces can contain abstract, default, static and private methods.",
+          "realWorldExample": "PaymentGateway can be implemented by UpiGateway and CardGateway.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "An interface defines a contract that implementing classes agree to provide.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can an interface have fields?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Can an interface extend multiple interfaces?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-16",
+        "question": "Interface versus abstract class: when would you use each?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Use an interface for a capability or contract; use an abstract class when related classes should share state or common implementation.",
+          "detailedAnswer": "A class can implement multiple interfaces but extend only one class. Decide based on the relationship and expected evolution.",
+          "realWorldExample": "Flyable can be implemented by Bird and Drone; AbstractVehicle can share common vehicle state.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Use an interface for a capability or contract; use an abstract class when related classes should share state or common implementation.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can an abstract class implement an interface?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Can an interface have default methods?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-17",
+        "question": "What is the difference between IS-A and HAS-A?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "IS-A describes inheritance and substitutability; HAS-A describes one object containing or using another.",
+          "detailedAnswer": "Use inheritance when a subtype can safely stand in for its parent. Use composition when one class collaborates with another.",
+          "realWorldExample": "Car IS-A Vehicle; Car HAS-A Engine.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "IS-A describes inheritance and substitutability; HAS-A describes one object containing or using another.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Why is HAS-A often more flexible?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Can a class have both relationships?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-18",
+        "question": "What is composition in OOP?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Composition is a strong whole-part relationship in which the whole owns or controls the lifecycle of its parts.",
+          "detailedAnswer": "It is commonly implemented by keeping another object as a field and managing it as part of the owner.",
+          "realWorldExample": "An Order may own OrderItems whose lifecycle is tied to the order.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Composition is a strong whole-part relationship in which the whole owns or controls the lifecycle of its parts.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Composition versus aggregation?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "How does composition differ from inheritance?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-19",
+        "question": "What is association?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Association is a general relationship in which objects know about or collaborate with one another.",
+          "detailedAnswer": "It may be one-to-one, one-to-many or many-to-many, and unidirectional or bidirectional. It is a design relationship, not a Java keyword.",
+          "realWorldExample": "A Doctor treats Patients; either side may hold a reference depending on the model.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Association is a general relationship in which objects know about or collaborate with one another.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What is multiplicity?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Is association a Java keyword?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-20",
+        "question": "What are access modifiers in Java?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Access modifiers control where classes and members can be accessed.",
+          "detailedAnswer": "Java provides public, protected, package-private (no modifier), and private. They help enforce encapsulation and API boundaries.",
+          "realWorldExample": "A private balance field is accessible only inside its declaring class.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Access modifiers control where classes and members can be accessed.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What does protected mean across packages?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Can a top-level class be private?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-21",
+        "question": "Static versus instance members: what is the difference?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Static members belong to the class; instance members belong to each object.",
+          "detailedAnswer": "A static field is shared by instances. Instance methods can access instance and static state, while static methods have no this reference.",
+          "realWorldExample": "Employee.companyName can be static while employee.name is an instance field.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Static members belong to the class; instance members belong to each object.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can a static method directly access an instance field?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Can static methods be overridden?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-22",
+        "question": "What is dynamic method dispatch?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Dynamic method dispatch is runtime selection of an overridden instance method based on the actual object.",
+          "detailedAnswer": "The reference type controls which members are accessible at compile time, while the runtime class selects the overridden implementation.",
+          "realWorldExample": "Animal animal = new Dog(); animal.sound() executes Dog.sound().",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Dynamic method dispatch is runtime selection of an overridden instance method based on the actual object.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Does field access use dynamic dispatch?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "Do overloaded methods use runtime dispatch?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-23",
+        "question": "What is the Object class in Java?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "java.lang.Object is the root superclass of Java classes that do not explicitly extend another class.",
+          "detailedAnswer": "It provides methods such as toString(), equals(), hashCode() and getClass().",
+          "realWorldExample": "A custom Employee class inherits Object methods unless it overrides them.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "java.lang.Object is the root superclass of Java classes that do not explicitly extend another class.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Why override toString()?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "What contract links equals() and hashCode()?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-24",
+        "question": "What is the difference between == and equals()?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "For primitives, == compares values; for references, == compares identity. equals() compares logical equality when implemented for that purpose.",
+          "detailedAnswer": "Object.equals() defaults to identity comparison. Classes such as String override it for value equality.",
+          "realWorldExample": "Two distinct String objects containing java may be == false but equals() true.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "For primitives, == compares values; for references, == compares identity. equals() compares logical equality when implemented for that purpose.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What should equals() and hashCode() satisfy?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "How does == work for primitives?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "conceptual-25",
+        "question": "Why is composition often preferred over inheritance?",
+        "difficulty": "Intermediate",
+        "category": "Conceptual",
+        "interviewAnswer": {
+          "shortAnswer": "Composition lets a class delegate work to collaborators instead of locking behaviour into a class hierarchy.",
+          "detailedAnswer": "It reduces tight coupling, allows collaborators to be replaced, and avoids fragile base-class dependencies. Inheritance remains useful for genuine substitutability.",
+          "realWorldExample": "OrderService has a PaymentGateway rather than extending a provider-specific gateway.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Composition lets a class delegate work to collaborators instead of locking behaviour into a class hierarchy.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "When is inheritance appropriate?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          },
+          {
+            "question": "How does dependency injection support composition?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      }
+    ],
+    "tricky": [
+      {
+        "id": "tricky-01",
+        "question": "Can a constructor be inherited or overridden?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. Constructors are not inherited and cannot be overridden.",
+          "detailedAnswer": "A subclass constructor can invoke a superclass constructor using super(). Constructors can be overloaded within their own class.",
+          "realWorldExample": "A Child constructor calls super() to initialize Parent state.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. Constructors are not inherited and cannot be overridden.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "How is a superclass constructor selected?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-02",
+        "question": "If a parent reference points to a child object, which method and field are used?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "An overridden instance method uses the runtime object; a field is resolved using the reference's declared type.",
+          "detailedAnswer": "Fields are hidden rather than overridden. The compile-time type determines field access, while dynamic dispatch selects overridden instance methods.",
+          "realWorldExample": "Parent p = new Child(); p.value refers to Parent.value if accessible, but p.show() can call Child.show().",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "An overridden instance method uses the runtime object; a field is resolved using the reference's declared type.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What happens with static methods?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-03",
+        "question": "Can static methods be overridden?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. Static methods are hidden, not overridden.",
+          "detailedAnswer": "Static method selection depends on the compile-time type or class used, not the runtime object.",
+          "realWorldExample": "Parent p = new Child(); p.staticMethod() resolves according to Parent.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. Static methods are hidden, not overridden.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can static methods be overloaded?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-04",
+        "question": "Can private methods be overridden?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. A private method is not inherited as an accessible overridable method.",
+          "detailedAnswer": "A same-signature method in the child is a separate method, not an override. @Override will cause a compile-time error.",
+          "realWorldExample": "Private Parent.print() and Child.print() are independent methods.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. A private method is not inherited as an accessible overridable method.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can a subclass directly call a private superclass method?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-05",
+        "question": "Can a final method be overridden?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. A final instance method cannot be overridden by subclasses.",
+          "detailedAnswer": "The final modifier prevents subclasses from replacing that method implementation.",
+          "realWorldExample": "A final calculateTax() method cannot be overridden.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. A final instance method cannot be overridden by subclasses.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can a final class be extended?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-06",
+        "question": "Can an abstract class have a constructor?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "Yes. Its constructor runs while constructing a concrete subclass object.",
+          "detailedAnswer": "You cannot instantiate the abstract class directly, but its constructor initializes inherited state as part of subclass construction.",
+          "realWorldExample": "new ConcreteReport() invokes AbstractReport's constructor through super().",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Yes. Its constructor runs while constructing a concrete subclass object.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can an abstract class have no abstract methods?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-07",
+        "question": "Can an interface have method implementations?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "Yes. Modern Java interfaces can have default, static and private methods with bodies.",
+          "detailedAnswer": "These methods allow interfaces to provide shared behaviour while maintaining contracts. Abstract interface methods are implicitly public.",
+          "realWorldExample": "A Loggable interface can provide a default log() method.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Yes. Modern Java interfaces can have default, static and private methods with bodies.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can a class override a default method?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-08",
+        "question": "What if two interfaces provide the same default method?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "The implementing class must resolve the conflict by overriding the method.",
+          "detailedAnswer": "It can provide its own implementation or explicitly select an inherited default using InterfaceName.super.method().",
+          "realWorldExample": "A class implementing A and B can call A.super.run() inside its override.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "The implementing class must resolve the conflict by overriding the method.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What if one interface extends the other and overrides the default?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-09",
+        "question": "Does Java support multiple inheritance?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "Java does not allow a class to extend multiple classes, but it can implement multiple interfaces.",
+          "detailedAnswer": "This avoids multiple class-state inheritance ambiguity while supporting multiple contracts. Default-method conflicts have explicit resolution rules.",
+          "realWorldExample": "class SmartPhone extends Device implements Camera, MusicPlayer.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Java does not allow a class to extend multiple classes, but it can implement multiple interfaces.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Why does Java restrict multiple class inheritance?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-10",
+        "question": "Can a method be overloaded by changing only its return type?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. The parameter list must differ; return type alone does not create a distinct overload.",
+          "detailedAnswer": "The compiler resolves a method call from its name and arguments, not solely from the expected return type.",
+          "realWorldExample": "int getValue() and String getValue() alone are an invalid overload pair.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. The parameter list must differ; return type alone does not create a distinct overload.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can parameter names alone distinguish overloads?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-11",
+        "question": "Can constructors be overloaded?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "Yes. A class can declare multiple constructors with different parameter lists.",
+          "detailedAnswer": "The compiler selects a matching constructor when an object is created. Constructor chaining can reduce repeated initialization.",
+          "realWorldExample": "User() and User(String name) are overloaded constructors.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Yes. A class can declare multiple constructors with different parameter lists.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Does Java generate a no-argument constructor if another constructor exists?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-12",
+        "question": "What happens if you declare a constructor but no no-argument constructor?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "Java does not generate the implicit default no-argument constructor.",
+          "detailedAnswer": "A call to new ClassName() fails unless a matching no-argument constructor was explicitly declared.",
+          "realWorldExample": "If Employee(String name) is the only constructor, new Employee() does not compile.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Java does not generate the implicit default no-argument constructor.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Default constructor versus no-argument constructor?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-13",
+        "question": "Can this() and super() both be explicit calls in one constructor?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. A constructor can explicitly delegate using this() or invoke a superclass constructor using super(), but not both.",
+          "detailedAnswer": "The explicit constructor invocation must be first. A this()-chained constructor may eventually invoke super().",
+          "realWorldExample": "Child(){ this(10); } and Child(int n){ super(); } is valid chaining.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. A constructor can explicitly delegate using this() or invoke a superclass constructor using super(), but not both.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What is constructor chaining?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-14",
+        "question": "Does Java pass objects by reference?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. Java is always pass-by-value; for objects, the copied value is the reference.",
+          "detailedAnswer": "A method can mutate the object through its copied reference, but reassigning its parameter does not change the caller's variable.",
+          "realWorldExample": "Changing user.name affects the shared object; assigning user = new User() changes only the local parameter.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. Java is always pass-by-value; for objects, the copied value is the reference.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What does pass-by-value mean for primitives?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-15",
+        "question": "Can a class be both abstract and final?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. These class modifiers conflict: abstract requires subclassing, while final prevents it.",
+          "detailedAnswer": "The combination is illegal because an abstract class must be extended to become concrete.",
+          "realWorldExample": "abstract final class Shape is illegal.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. These class modifiers conflict: abstract requires subclassing, while final prevents it.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can an abstract method be final?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-16",
+        "question": "Can an abstract method be private or static?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. An abstract method must be implemented by a subclass and participates in instance overriding.",
+          "detailedAnswer": "A private method is not available for subclass implementation, and static methods are hidden rather than overridden.",
+          "realWorldExample": "private abstract void run() is illegal.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. An abstract method must be implemented by a subclass and participates in instance overriding.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can an abstract method be protected?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-17",
+        "question": "Can an interface extend more than one interface?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "Yes. An interface can extend multiple interfaces.",
+          "detailedAnswer": "This lets an interface combine contracts. Inherited default-method conflicts may need explicit resolution.",
+          "realWorldExample": "interface SmartDevice extends Connectable, Updatable {}",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Yes. An interface can extend multiple interfaces.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can a class implement multiple interfaces?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-18",
+        "question": "What is a covariant return type?",
+        "difficulty": "Intermediate",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "An overriding method may return a subtype of the return type declared by the overridden method.",
+          "detailedAnswer": "This permits a more specific result while preserving substitutability. Primitive return types must match exactly.",
+          "realWorldExample": "If Parent.create() returns Animal, Child.create() may return Dog.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "An overriding method may return a subtype of the return type declared by the overridden method.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can an override return a supertype?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-19",
+        "question": "Can an overriding method reduce visibility?",
+        "difficulty": "Advanced",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. An overriding method cannot be less accessible than the inherited method.",
+          "detailedAnswer": "It may keep or widen visibility, but cannot narrow it. This preserves the superclass contract.",
+          "realWorldExample": "A public parent method cannot be overridden as protected.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. An overriding method cannot be less accessible than the inherited method.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can an override widen checked exceptions?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-20",
+        "question": "Can an overriding method throw broader checked exceptions?",
+        "difficulty": "Advanced",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. It cannot declare broader or new checked exceptions than the overridden method permits.",
+          "detailedAnswer": "It may declare fewer or narrower checked exceptions, or unchecked exceptions. This preserves callers' compile-time expectations.",
+          "realWorldExample": "If the parent throws IOException, the child may throw FileNotFoundException but not Exception.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. It cannot declare broader or new checked exceptions than the overridden method permits.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What about unchecked exceptions?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-21",
+        "question": "What is method hiding versus overriding?",
+        "difficulty": "Advanced",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "Method hiding applies to static methods; overriding applies to inherited instance methods.",
+          "detailedAnswer": "Static method selection is based on compile-time type, while overridden instance method selection is based on the runtime object.",
+          "realWorldExample": "Parent.staticCall() and Child.staticCall() are selected according to the class/reference used.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Method hiding applies to static methods; overriding applies to inherited instance methods.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Do fields get overridden?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-22",
+        "question": "Why can calling an overridable method from a constructor be dangerous?",
+        "difficulty": "Advanced",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "The subclass override can run before subclass field initializers and constructor body have completed.",
+          "detailedAnswer": "During superclass construction, dynamic dispatch can invoke subclass code on a partially initialized object. Avoid calling overridable methods from constructors.",
+          "realWorldExample": "A Parent constructor calls show(); Child.show() reads a field that is still at its default value.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "The subclass override can run before subclass field initializers and constructor body have completed.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What is a safer alternative?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-23",
+        "question": "Can an abstract class implement an interface without implementing every method?",
+        "difficulty": "Advanced",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "Yes. An abstract class may leave interface methods unimplemented for a concrete subclass.",
+          "detailedAnswer": "The class remains abstract until a concrete descendant implements all required abstract methods.",
+          "realWorldExample": "abstract class BaseService implements Service {}",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Yes. An abstract class may leave interface methods unimplemented for a concrete subclass.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Must a concrete subclass implement all remaining abstract methods?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-24",
+        "question": "What happens when a subclass declares a field with the same name as its parent?",
+        "difficulty": "Advanced",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "The subclass field hides the parent field; it does not override it.",
+          "detailedAnswer": "Which field is accessed depends on the compile-time reference type. Both fields can exist in the same object.",
+          "realWorldExample": "Parent p = new Child(); p.name accesses Parent.name if accessible.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "The subclass field hides the parent field; it does not override it.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Can super.name access the parent field?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "tricky-25",
+        "question": "Is a reference variable the object itself?",
+        "difficulty": "Advanced",
+        "category": "Tricky",
+        "interviewAnswer": {
+          "shortAnswer": "No. A reference variable holds a reference value identifying an object; it is not the object itself.",
+          "detailedAnswer": "Multiple variables can refer to the same object. Assigning one reference to another does not clone the object.",
+          "realWorldExample": "User a = new User(); User b = a; means both refer to the same object.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. A reference variable holds a reference value identifying an object; it is not the object itself.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What does b = new User() do?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      }
+    ],
+    "scenarioBased": [
+      {
+        "id": "scenario-01",
+        "question": "You need multiple payment providers behind one common API. Which OOP concepts help?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "Use abstraction and polymorphism through a PaymentGateway interface, with one implementation per provider.",
+          "detailedAnswer": "The caller depends on the interface and receives an implementation through configuration or dependency injection. This reduces coupling.",
+          "realWorldExample": "PaymentGateway gateway = new UpiGateway(); gateway.pay(amount);",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Use abstraction and polymorphism through a PaymentGateway interface, with one implementation per provider.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "How would you add a provider without changing the caller?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-02",
+        "question": "A bank account balance must never become negative. How would you design it?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "Use encapsulation: keep balance private and expose validated deposit and withdraw operations.",
+          "detailedAnswer": "Do not expose a public setter. Validate amount and available funds inside the methods so every update preserves the invariant.",
+          "realWorldExample": "withdraw(amount) checks amount > 0 and amount <= balance before subtracting.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Use encapsulation: keep balance private and expose validated deposit and withdraw operations.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Where should validation live?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-03",
+        "question": "Different report types share header generation but have different body generation. What would you use?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "An abstract base class can share common implementation and declare a body-generation method for subclasses.",
+          "detailedAnswer": "Use this when report types are genuinely related and share a stable workflow. If unrelated, compose reusable collaborators instead.",
+          "realWorldExample": "abstract class Report { final void generate(){ header(); body(); } abstract void body(); }",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "An abstract base class can share common implementation and declare a body-generation method for subclasses.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "When might an interface be better?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-04",
+        "question": "A bird and an airplane can both fly, but they are not the same kind of entity. How would you model this?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "Use a Flyable interface rather than making Airplane inherit from Bird.",
+          "detailedAnswer": "The interface captures a capability shared by unrelated types without forcing an incorrect is-a relationship.",
+          "realWorldExample": "Bird and Airplane both implement Flyable.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Use a Flyable interface rather than making Airplane inherit from Bird.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What if they have different flying implementations?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-05",
+        "question": "A class has too many responsibilities and changes for unrelated reasons. What design direction helps?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "Improve cohesion by splitting responsibilities into focused classes and collaborating through composition.",
+          "detailedAnswer": "Give each class a clear responsibility. Extract collaborators and inject them rather than building one large class.",
+          "realWorldExample": "OrderService delegates payment to PaymentService and notification to NotificationService.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Improve cohesion by splitting responsibilities into focused classes and collaborating through composition.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "How would you identify class responsibilities?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-06",
+        "question": "You want to add SMS notifications without modifying callers that send email notifications. How?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "Define a NotificationSender interface and implement EmailSender and SmsSender.",
+          "detailedAnswer": "Callers depend on the abstraction; new implementations can be supplied through configuration or dependency injection.",
+          "realWorldExample": "NotificationSender sender = new SmsSender(); sender.send(message);",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Define a NotificationSender interface and implement EmailSender and SmsSender.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "How does this support the Open/Closed Principle?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-07",
+        "question": "A subclass breaks callers that expect the parent contract. What principle may be violated?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "The subclass may violate the Liskov Substitution Principle.",
+          "detailedAnswer": "A subtype should be usable wherever its parent is expected without breaking valid client assumptions. Revisit the inheritance relationship or contract.",
+          "realWorldExample": "A Square subtype that cannot honour a Rectangle's independent width and height setters may be a poor subtype.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "The subclass may violate the Liskov Substitution Principle.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "Explain LSP with another example.",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-08",
+        "question": "A class inherits many methods it does not need. What would you reconsider?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "The inheritance hierarchy may be too broad; prefer smaller interfaces and composition.",
+          "detailedAnswer": "Use interface segregation and composition to avoid forcing classes to depend on unused behaviour.",
+          "realWorldExample": "Split Worker into Workable and Eatable capabilities instead of requiring every worker to implement both.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "The inheritance hierarchy may be too broad; prefer smaller interfaces and composition.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What is the Interface Segregation Principle?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-09",
+        "question": "Two services need to collaborate, but you want to unit test one without the other. How can OOP help?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "Depend on an interface and inject a collaborator implementation.",
+          "detailedAnswer": "The service uses an abstraction, and tests can supply a fake or mock implementation. This is composition and dependency inversion.",
+          "realWorldExample": "OrderService(PaymentGateway gateway) receives a test double in a unit test.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Depend on an interface and inject a collaborator implementation.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What is constructor injection?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-10",
+        "question": "A superclass constructor calls an overridden method and the subclass sees null fields. Why?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "Dynamic dispatch invokes the subclass override during superclass construction, before subclass initialization is complete.",
+          "detailedAnswer": "Avoid calling overridable methods from constructors. Use private/final initialization methods or invoke extension hooks after construction.",
+          "realWorldExample": "Move extension behaviour to an explicit method called after construction.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Dynamic dispatch invokes the subclass override during superclass construction, before subclass initialization is complete.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What is the default value of an uninitialized instance int field?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-11",
+        "question": "A car contains an engine. Should Car extend Engine?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "No. Car has an Engine, so model it with composition.",
+          "detailedAnswer": "Inheritance should represent is-a substitutability. A car is not an engine; it contains or uses one.",
+          "realWorldExample": "class Car { private Engine engine; }",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "No. Car has an Engine, so model it with composition.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "When is inheritance appropriate?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-12",
+        "question": "A method must behave differently for CreditCardPayment and UpiPayment, but callers invoke the same method. What is this?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "Runtime polymorphism through a shared interface or superclass and overridden implementations.",
+          "detailedAnswer": "The reference type provides a common contract, and the actual object's override runs at runtime.",
+          "realWorldExample": "paymentMethod.pay(amount) dispatches to the concrete payment implementation.",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Runtime polymorphism through a shared interface or superclass and overridden implementations.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What determines overload selection?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-13",
+        "question": "A class should not allow callers to change its internal List directly. What should it do?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "Keep the list private and return an unmodifiable view or defensive copy; avoid exposing the mutable internal collection.",
+          "detailedAnswer": "This protects internal state from external mutation. If elements are mutable, deeper defensive copying may be needed.",
+          "realWorldExample": "return List.copyOf(items);",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Keep the list private and return an unmodifiable view or defensive copy; avoid exposing the mutable internal collection.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "What is the difference between shallow and deep copying?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-14",
+        "question": "A new subtype needs a different implementation but should preserve the parent's public contract. What should you check?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "Check substitutability, method preconditions and postconditions, exceptions, and invariants before using inheritance.",
+          "detailedAnswer": "An override should not strengthen preconditions or weaken postconditions in ways that surprise callers. Use composition if the subtype cannot honour the contract.",
+          "realWorldExample": "A read-only account should not be forced into a mutable Account contract that promises withdraw().",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Check substitutability, method preconditions and postconditions, exceptions, and invariants before using inheritance.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "How does LSP guide this decision?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      },
+      {
+        "id": "scenario-15",
+        "question": "A class has many constructor parameters and callers pass nulls or values in confusing order. What could improve the design?",
+        "difficulty": "Intermediate",
+        "category": "Scenario-based",
+        "interviewAnswer": {
+          "shortAnswer": "Use meaningful constructors, a builder, or parameter objects depending on complexity.",
+          "detailedAnswer": "The goal is clear object creation and valid state. A builder is useful when there are many optional parameters or construction steps.",
+          "realWorldExample": "User.builder().name(\"Asha\").email(\"asha@example.com\").build();",
+          "codeExample": {
+            "language": "Java",
+            "code": "",
+            "output": ""
+          },
+          "importantPoints": [
+            "Use meaningful constructors, a builder, or parameter objects depending on complexity.",
+            "Explain the relevant Java rule accurately.",
+            "Connect the concept to a practical design decision."
+          ]
+        },
+        "followUpQuestions": [
+          {
+            "question": "How can a constructor enforce mandatory fields?",
+            "suggestedAnswer": "Explain the Java rule first, then support it with a short example and mention any important limitation."
+          }
+        ],
+        "interviewerTip": "Start with a concise definition, explain the Java-specific behaviour, and finish with a practical example."
+      }
+    ]
+  },
+  "codingExamples": [
+    {
+      "id": "code-01",
+      "title": "Encapsulation using a BankAccount",
+      "concepts": [
+        "Class",
+        "Object",
+        "Encapsulation"
+      ],
+      "language": "Java",
+      "code": "class BankAccount {\n    private double balance;\n\n    public BankAccount(double openingBalance) {\n        if (openingBalance < 0) {\n            throw new IllegalArgumentException(\"Invalid opening balance\");\n        }\n        this.balance = openingBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount <= 0) throw new IllegalArgumentException(\"Amount must be positive\");\n        balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount <= 0 || amount > balance) return false;\n        balance -= amount;\n        return true;\n    }\n\n    public double getBalance() { return balance; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        BankAccount account = new BankAccount(1000);\n        account.deposit(500);\n        account.withdraw(200);\n        System.out.println(account.getBalance());\n    }\n}",
+      "output": "1300.0",
+      "explanation": "The balance is private. Callers can change it only through methods that validate operations, preserving the account's rules.",
+      "interviewQuestion": "Write a Java class that demonstrates encapsulation using a bank account."
+    },
+    {
+      "id": "code-02",
+      "title": "Runtime polymorphism using an interface",
+      "concepts": [
+        "Abstraction",
+        "Interface",
+        "Polymorphism"
+      ],
+      "language": "Java",
+      "code": "interface Payment {\n    void pay(int amount);\n}\n\nclass UpiPayment implements Payment {\n    public void pay(int amount) {\n        System.out.println(\"Paid \" + amount + \" using UPI\");\n    }\n}\n\nclass CardPayment implements Payment {\n    public void pay(int amount) {\n        System.out.println(\"Paid \" + amount + \" using card\");\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Payment payment = new UpiPayment();\n        payment.pay(500);\n        payment = new CardPayment();\n        payment.pay(800);\n    }\n}",
+      "output": "Paid 500 using UPI\nPaid 800 using card",
+      "explanation": "The reference type is Payment, but the runtime object decides which overridden pay() method executes.",
+      "interviewQuestion": "Demonstrate runtime polymorphism using a payment interface."
+    },
+    {
+      "id": "code-03",
+      "title": "Method overloading",
+      "concepts": [
+        "Polymorphism"
+      ],
+      "language": "Java",
+      "code": "class Calculator {\n    int add(int a, int b) { return a + b; }\n    double add(double a, double b) { return a + b; }\n    int add(int a, int b, int c) { return a + b + c; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Calculator calculator = new Calculator();\n        System.out.println(calculator.add(2, 3));\n        System.out.println(calculator.add(2.5, 3.5));\n        System.out.println(calculator.add(1, 2, 3));\n    }\n}",
+      "output": "5\n6.0\n6",
+      "explanation": "The compiler chooses the overload using the number and types of arguments. This is compile-time polymorphism.",
+      "interviewQuestion": "Write an example of method overloading in Java."
+    },
+    {
+      "id": "code-04",
+      "title": "Method overriding and dynamic dispatch",
+      "concepts": [
+        "Inheritance",
+        "Polymorphism"
+      ],
+      "language": "Java",
+      "code": "class Animal {\n    void sound() { System.out.println(\"Animal sound\"); }\n}\n\nclass Dog extends Animal {\n    @Override\n    void sound() { System.out.println(\"Bark\"); }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Animal animal = new Dog();\n        animal.sound();\n    }\n}",
+      "output": "Bark",
+      "explanation": "The reference is Animal, but the object is Dog. The Dog override is selected at runtime.",
+      "interviewQuestion": "Demonstrate method overriding and dynamic method dispatch."
+    },
+    {
+      "id": "code-05",
+      "title": "Inheritance and super",
+      "concepts": [
+        "Inheritance",
+        "Constructor"
+      ],
+      "language": "Java",
+      "code": "class Employee {\n    String name;\n    Employee(String name) { this.name = name; }\n    void display() { System.out.println(\"Employee: \" + name); }\n}\n\nclass Manager extends Employee {\n    Manager(String name) { super(name); }\n    @Override\n    void display() {\n        super.display();\n        System.out.println(\"Role: Manager\");\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Manager manager = new Manager(\"Asha\");\n        manager.display();\n    }\n}",
+      "output": "Employee: Asha\nRole: Manager",
+      "explanation": "Manager inherits Employee state and behaviour, invokes the parent constructor with super(name), and extends display().",
+      "interviewQuestion": "Write a Java example showing inheritance, constructor chaining and super."
+    },
+    {
+      "id": "code-06",
+      "title": "Composition instead of inheritance",
+      "concepts": [
+        "Composition",
+        "Association"
+      ],
+      "language": "Java",
+      "code": "class Engine {\n    void start() { System.out.println(\"Engine started\"); }\n}\n\nclass Car {\n    private final Engine engine;\n    Car(Engine engine) { this.engine = engine; }\n    void startCar() {\n        engine.start();\n        System.out.println(\"Car is ready\");\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Car car = new Car(new Engine());\n        car.startCar();\n    }\n}",
+      "output": "Engine started\nCar is ready",
+      "explanation": "Car has an Engine. It delegates engine work rather than incorrectly extending Engine.",
+      "interviewQuestion": "Demonstrate composition using Car and Engine."
+    },
+    {
+      "id": "code-07",
+      "title": "Abstract class",
+      "concepts": [
+        "Abstraction",
+        "Abstract Class"
+      ],
+      "language": "Java",
+      "code": "abstract class Shape {\n    abstract double area();\n    void printArea() { System.out.println(area()); }\n}\n\nclass Circle extends Shape {\n    private final double radius;\n    Circle(double radius) { this.radius = radius; }\n    @Override\n    double area() { return Math.PI * radius * radius; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Shape shape = new Circle(2);\n        shape.printArea();\n    }\n}",
+      "output": "12.566370614359172",
+      "explanation": "Shape defines the abstraction and shared printArea() behaviour; Circle supplies the area calculation.",
+      "interviewQuestion": "Write an example using an abstract class and an abstract method."
+    },
+    {
+      "id": "code-08",
+      "title": "Interface with constructor injection",
+      "concepts": [
+        "Interface",
+        "Abstraction",
+        "Polymorphism"
+      ],
+      "language": "Java",
+      "code": "interface NotificationSender {\n    void send(String message);\n}\n\nclass EmailSender implements NotificationSender {\n    public void send(String message) {\n        System.out.println(\"Email: \" + message);\n    }\n}\n\nclass SmsSender implements NotificationSender {\n    public void send(String message) {\n        System.out.println(\"SMS: \" + message);\n    }\n}\n\nclass AlertService {\n    private final NotificationSender sender;\n    AlertService(NotificationSender sender) { this.sender = sender; }\n    void alert(String message) { sender.send(message); }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        AlertService service = new AlertService(new SmsSender());\n        service.alert(\"Server is down\");\n    }\n}",
+      "output": "SMS: Server is down",
+      "explanation": "AlertService depends on an interface and receives the implementation through its constructor, making it easy to replace or test.",
+      "interviewQuestion": "Demonstrate interface-based design and constructor injection."
+    }
+  ],
+  "keyTakeaways": [
+    "Encapsulation protects object state and preserves invariants.",
+    "Abstraction exposes a useful contract while hiding implementation details.",
+    "Inheritance should model a genuine is-a relationship and preserve substitutability.",
+    "Polymorphism allows callers to work with a common type while implementations vary.",
+    "Overloading is resolved at compile time; overridden instance methods use runtime dispatch.",
+    "Prefer composition when a class needs another object’s capability rather than being a subtype of it.",
+    "Use interfaces for capabilities and contracts; use abstract classes when related types share state or implementation.",
+    "Know Java-specific rules around constructors, static methods, private methods, final methods, fields and access modifiers."
+  ],
+  "contentNotes": {
+    "format": "Plain JSON; no HTML or Markdown markup in content fields.",
+    "answerStyle": "Each interview answer has a concise speakable answer followed by a detailed explanation, a practical example, important points and follow-up questions.",
+    "codeStyle": "Java examples are self-contained and include expected console output."
+  },
+  "questionCounts": {
+    "conceptual": 25,
+    "tricky": 25,
+    "scenarioBased": 15,
+    "codingExamples": 8,
+    "concepts": 9
+  }
+}
