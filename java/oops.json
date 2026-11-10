@@ -10,7 +10,7 @@
     "Basic methods and constructors",
     "Basic inheritance syntax"
   ],
-  "concepts": [
+   "concepts": [
     {
       "id": "oop-concept-01",
       "name": "Class",
@@ -20,6 +20,50 @@
         "Know the purpose of the concept, not only its definition.",
         "Be able to explain the concept with a small Java example.",
         "Choose the design that preserves clear responsibilities and low coupling."
+      ],
+      "whyItExists": {
+        "explanation": "A class gives related data and behaviour one named structure. It lets a program describe a kind of thing once and create many objects from the same design.",
+        "designProblemSolved": "Without a class, a program tends to keep related variables and functions separately. The same structure and rules get repeated for every employee, product, or account, making changes error-prone.",
+        "problemsWithoutConcept": [
+          "Related state and behaviour become scattered across the program.",
+          "The same fields and operations are repeatedly declared for similar entities.",
+          "There is no clear type boundary describing what data and behaviour belong together."
+        ]
+      },
+      "basicExample": {
+        "purpose": "Define a simple blueprint for a student. This example declares a class; it does not create a student object yet.",
+        "code": "class Student {\n    String name;\n    int age;\n\n    void introduce() {\n        System.out.println(\"I am \" + name + \" and I am \" + age);\n    }\n}",
+        "output": "No output. A class declaration defines a type; introduce() runs only when it is called on an object.",
+        "codeExplanation": [
+          {
+            "code": "class Student {",
+            "explanation": "Declares a new class named Student. The braces contain the members belonging to this type."
+          },
+          {
+            "code": "String name;",
+            "explanation": "Declares an instance field to store each student’s name."
+          },
+          {
+            "code": "int age;",
+            "explanation": "Declares an instance field to store each student’s age."
+          },
+          {
+            "code": "void introduce() { ... }",
+            "explanation": "Declares a method that describes behaviour. It uses the fields of the object on which it is called."
+          }
+        ],
+        "beginnerNote": "A class is the definition; an object is the actual instance created from that definition."
+      },
+      "howItWorksDetailed": "When the compiler reads the class declaration, it makes the Student type available for type checking and object creation. The declaration itself does not create a Student instance. Each instance later gets its own instance fields, while the class describes the common set of fields and methods.",
+      "learningOrder": 1,
+      "contentSections": [
+        "definition",
+        "whyItExists",
+        "problemsWithoutConcept",
+        "basicExample",
+        "howItWorksDetailed",
+        "realWorldExample",
+        "interviewTip"
       ]
     },
     {
@@ -31,6 +75,58 @@
         "Know the purpose of the concept, not only its definition.",
         "Be able to explain the concept with a small Java example.",
         "Choose the design that preserves clear responsibilities and low coupling."
+      ],
+      "whyItExists": {
+        "explanation": "A class describes a type, but an application usually needs multiple individual entities of that type, each with its own state. Objects provide those individual runtime instances.",
+        "designProblemSolved": "Without objects, a class would be only a definition and the application would have no separate student, account, or product instances whose state can change independently.",
+        "problemsWithoutConcept": [
+          "There is no individual runtime entity to hold instance state.",
+          "Two students cannot naturally have different names and ages using the same class definition.",
+          "Behaviour cannot be invoked against a particular instance."
+        ]
+      },
+      "basicExample": {
+        "purpose": "Create two objects from one Student class and show that each object has independent state.",
+        "code": "class Student {\n    String name;\n\n    void introduce() {\n        System.out.println(\"Hello, \" + name);\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Student first = new Student();\n        first.name = \"Asha\";\n\n        Student second = new Student();\n        second.name = \"Ravi\";\n\n        first.introduce();\n        second.introduce();\n    }\n}",
+        "output": "Hello, Asha\nHello, Ravi",
+        "codeExplanation": [
+          {
+            "code": "Student first = new Student();",
+            "explanation": "The new operator creates a Student instance, and the variable first stores its reference."
+          },
+          {
+            "code": "first.name = \"Asha\";",
+            "explanation": "Sets the name field on the first object."
+          },
+          {
+            "code": "Student second = new Student();",
+            "explanation": "Creates a second, separate Student object from the same class."
+          },
+          {
+            "code": "second.name = \"Ravi\";",
+            "explanation": "Sets a different value on the second object; it does not change first.name."
+          },
+          {
+            "code": "first.introduce();",
+            "explanation": "Calls the method on the first object, so its name is printed."
+          },
+          {
+            "code": "second.introduce();",
+            "explanation": "Calls the same class-defined method on the second object, using that object’s state."
+          }
+        ],
+        "beginnerNote": "The variables first and second hold references to two distinct objects. The objects have separate instance fields."
+      },
+      "howItWorksDetailed": "For a normal class, new requests object creation and invokes a constructor. The reference variable receives a reference to the object. Instance fields belong to each object, so changing one object’s field does not automatically change another object’s field.",
+      "learningOrder": 2,
+      "contentSections": [
+        "definition",
+        "whyItExists",
+        "problemsWithoutConcept",
+        "basicExample",
+        "howItWorksDetailed",
+        "realWorldExample",
+        "interviewTip"
       ]
     },
     {
@@ -42,6 +138,58 @@
         "Know the purpose of the concept, not only its definition.",
         "Be able to explain the concept with a small Java example.",
         "Choose the design that preserves clear responsibilities and low coupling."
+      ],
+      "whyItExists": {
+        "explanation": "Encapsulation protects an object’s internal state and makes the object responsible for enforcing rules whenever that state changes.",
+        "designProblemSolved": "If callers can change fields directly, they can put an object into an invalid state. A bank balance, for example, could be set to a negative value without a withdrawal rule being checked.",
+        "problemsWithoutConcept": [
+          "Any caller can assign invalid values directly.",
+          "Validation rules are duplicated across callers and may be forgotten.",
+          "Internal representation becomes tightly coupled to every class using it."
+        ]
+      },
+      "basicExample": {
+        "purpose": "Compare direct public-field access with private state and a controlled method.",
+        "code": "class BankAccount {\n    private double balance = 1000;\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            balance = balance + amount;\n        }\n    }\n\n    public double getBalance() {\n        return balance;\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        BankAccount account = new BankAccount();\n        account.deposit(500);\n        account.deposit(-200);\n        System.out.println(account.getBalance());\n    }\n}",
+        "output": "1500.0",
+        "codeExplanation": [
+          {
+            "code": "private double balance = 1000;",
+            "explanation": "The private modifier prevents other classes from directly accessing balance. It starts with an initial value of 1000."
+          },
+          {
+            "code": "public void deposit(double amount) {",
+            "explanation": "Exposes a controlled operation instead of exposing the field itself."
+          },
+          {
+            "code": "if (amount > 0) {",
+            "explanation": "Checks the business rule before changing the account state."
+          },
+          {
+            "code": "balance = balance + amount;",
+            "explanation": "Updates the private field only when the validation succeeds."
+          },
+          {
+            "code": "public double getBalance() { return balance; }",
+            "explanation": "Provides read access through a method. A getter is optional; it is not mandatory for encapsulation."
+          },
+          {
+            "code": "account.deposit(-200);",
+            "explanation": "The invalid deposit is ignored because the validation condition is false."
+          }
+        ],
+        "beginnerNote": "Encapsulation is not simply generating getters and setters. The important part is protecting state and exposing meaningful, controlled operations."
+      },
+      "howItWorksDetailed": "Access modifiers define which code can access members. A private field can be read or changed only by code allowed inside its declaring class (including permitted nested access). Public methods form the controlled API. Validation and invariants should live close to the state they protect.",
+      "learningOrder": 3,
+      "contentSections": [
+        "definition",
+        "whyItExists",
+        "problemsWithoutConcept",
+        "basicExample",
+        "howItWorksDetailed",
+        "realWorldExample",
+        "interviewTip"
       ]
     },
     {
@@ -53,6 +201,54 @@
         "Know the purpose of the concept, not only its definition.",
         "Be able to explain the concept with a small Java example.",
         "Choose the design that preserves clear responsibilities and low coupling."
+      ],
+      "whyItExists": {
+        "explanation": "Abstraction lets callers work with essential operations without needing to understand every implementation detail. It separates what a component promises to do from how it does it.",
+        "designProblemSolved": "Without abstraction, callers often need to know low-level steps and concrete implementation classes. Replacing an implementation then forces changes in many callers.",
+        "problemsWithoutConcept": [
+          "Client code becomes dependent on implementation details.",
+          "Changing an implementation can require changing every caller.",
+          "Complex internal steps leak into code that only needs a simple operation."
+        ]
+      },
+      "basicExample": {
+        "purpose": "A caller uses a PaymentService contract without knowing the payment-processing details.",
+        "code": "interface PaymentService {\n    void pay(double amount);\n}\n\nclass UpiPayment implements PaymentService {\n    public void pay(double amount) {\n        System.out.println(\"Paid \" + amount + \" using UPI\");\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        PaymentService payment = new UpiPayment();\n        payment.pay(500);\n    }\n}",
+        "output": "Paid 500.0 using UPI",
+        "codeExplanation": [
+          {
+            "code": "interface PaymentService { void pay(double amount); }",
+            "explanation": "Declares the operation callers can rely on. The interface specifies what must be available, not the payment steps."
+          },
+          {
+            "code": "class UpiPayment implements PaymentService",
+            "explanation": "Provides one concrete implementation of the abstraction."
+          },
+          {
+            "code": "public void pay(double amount) { ... }",
+            "explanation": "Implements the required operation and contains the implementation-specific behaviour."
+          },
+          {
+            "code": "PaymentService payment = new UpiPayment();",
+            "explanation": "The reference uses the abstraction type, so the caller is written against the contract rather than the concrete class."
+          },
+          {
+            "code": "payment.pay(500);",
+            "explanation": "The caller invokes the contract. Java dispatches the call to UpiPayment’s implementation at runtime."
+          }
+        ],
+        "beginnerNote": "Abstraction is about exposing a useful contract and hiding unnecessary details. Encapsulation protects internal state; the two ideas are related but not identical."
+      },
+      "howItWorksDetailed": "Java supports abstraction through interfaces and abstract classes. An interface can declare a contract that implementing classes fulfil. An abstract class can combine abstract operations with shared state or implemented methods. Code typed against the abstraction can work with different implementations.",
+      "learningOrder": 4,
+      "contentSections": [
+        "definition",
+        "whyItExists",
+        "problemsWithoutConcept",
+        "basicExample",
+        "howItWorksDetailed",
+        "realWorldExample",
+        "interviewTip"
       ]
     },
     {
@@ -64,6 +260,58 @@
         "Know the purpose of the concept, not only its definition.",
         "Be able to explain the concept with a small Java example.",
         "Choose the design that preserves clear responsibilities and low coupling."
+      ],
+      "whyItExists": {
+        "explanation": "Inheritance models an is-a relationship and allows a specialised class to reuse and extend accessible behaviour from a general class.",
+        "designProblemSolved": "Without inheritance, genuinely shared behaviour may be copied into several related classes. Fixing a common rule then requires editing each copy and risks inconsistent behaviour.",
+        "problemsWithoutConcept": [
+          "Common behaviour may be duplicated across related types.",
+          "A shared change must be repeated in several classes.",
+          "There is no subtype relationship for APIs that should accept a general parent type."
+        ]
+      },
+      "basicExample": {
+        "purpose": "Move common name behaviour into a parent class and reuse it in a child class.",
+        "code": "class Animal {\n    void eat() {\n        System.out.println(\"Animal is eating\");\n    }\n}\n\nclass Dog extends Animal {\n    void bark() {\n        System.out.println(\"Dog is barking\");\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Dog dog = new Dog();\n        dog.eat();\n        dog.bark();\n    }\n}",
+        "output": "Animal is eating\nDog is barking",
+        "codeExplanation": [
+          {
+            "code": "class Animal { ... }",
+            "explanation": "Defines the general parent type and its common eat() behaviour."
+          },
+          {
+            "code": "class Dog extends Animal",
+            "explanation": "Declares Dog as a subclass of Animal. Dog inherits accessible members from Animal."
+          },
+          {
+            "code": "void bark() { ... }",
+            "explanation": "Adds behaviour specific to Dog."
+          },
+          {
+            "code": "Dog dog = new Dog();",
+            "explanation": "Creates a Dog object."
+          },
+          {
+            "code": "dog.eat();",
+            "explanation": "Calls the inherited method defined in Animal."
+          },
+          {
+            "code": "dog.bark();",
+            "explanation": "Calls the method declared specifically in Dog."
+          }
+        ],
+        "beginnerNote": "Use inheritance only when the subtype genuinely satisfies the parent type’s contract. Reuse alone is not always a good reason to extend a class."
+      },
+      "howItWorksDetailed": "The extends keyword establishes a superclass/subclass relationship. A subclass inherits accessible members, but constructors are not inherited. A subclass constructor invokes a superclass constructor using super(...) (explicitly or implicitly). Java classes have single class inheritance, though a class can implement multiple interfaces.",
+      "learningOrder": 5,
+      "contentSections": [
+        "definition",
+        "whyItExists",
+        "problemsWithoutConcept",
+        "basicExample",
+        "howItWorksDetailed",
+        "realWorldExample",
+        "interviewTip"
       ]
     },
     {
@@ -75,6 +323,58 @@
         "Know the purpose of the concept, not only its definition.",
         "Be able to explain the concept with a small Java example.",
         "Choose the design that preserves clear responsibilities and low coupling."
+      ],
+      "whyItExists": {
+        "explanation": "Polymorphism allows code to use one common parent or interface type while the actual object supplies its own behaviour.",
+        "designProblemSolved": "Without polymorphism, callers often write long if/else or switch statements for every concrete type. Adding a new type then requires changing all those decision points.",
+        "problemsWithoutConcept": [
+          "Callers become coupled to every concrete implementation.",
+          "Conditional logic grows whenever a new implementation is added.",
+          "Common operations cannot be invoked uniformly through a shared type."
+        ]
+      },
+      "basicExample": {
+        "purpose": "Call different implementations through the same Animal reference type.",
+        "code": "class Animal {\n    void sound() {\n        System.out.println(\"Animal makes a sound\");\n    }\n}\n\nclass Dog extends Animal {\n    @Override\n    void sound() {\n        System.out.println(\"Dog barks\");\n    }\n}\n\nclass Cat extends Animal {\n    @Override\n    void sound() {\n        System.out.println(\"Cat meows\");\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Animal first = new Dog();\n        Animal second = new Cat();\n        first.sound();\n        second.sound();\n    }\n}",
+        "output": "Dog barks\nCat meows",
+        "codeExplanation": [
+          {
+            "code": "class Dog extends Animal",
+            "explanation": "Dog is a subtype of Animal and can provide its own version of sound()."
+          },
+          {
+            "code": "@Override",
+            "explanation": "Asks the compiler to verify that this method correctly overrides an inherited method."
+          },
+          {
+            "code": "Animal first = new Dog();",
+            "explanation": "The reference type is Animal, but the runtime object is Dog."
+          },
+          {
+            "code": "Animal second = new Cat();",
+            "explanation": "The same parent reference type can refer to a different subtype object."
+          },
+          {
+            "code": "first.sound();",
+            "explanation": "For an overridden instance method, Java chooses the implementation based on the actual object at runtime, so Dog.sound() runs."
+          },
+          {
+            "code": "second.sound();",
+            "explanation": "The runtime object is Cat, so Cat.sound() runs."
+          }
+        ],
+        "beginnerNote": "This is runtime polymorphism through method overriding. Method overloading is compile-time polymorphism and is resolved using the method signature and compile-time types."
+      },
+      "howItWorksDetailed": "For overridden instance methods, Java uses dynamic method dispatch: the runtime class of the object determines which overridden implementation executes. The reference type still controls which members are accessible at compile time. Static methods are hidden rather than overridden, and fields are not dynamically dispatched.",
+      "learningOrder": 6,
+      "contentSections": [
+        "definition",
+        "whyItExists",
+        "problemsWithoutConcept",
+        "basicExample",
+        "howItWorksDetailed",
+        "realWorldExample",
+        "interviewTip"
       ]
     },
     {
@@ -86,6 +386,54 @@
         "Know the purpose of the concept, not only its definition.",
         "Be able to explain the concept with a small Java example.",
         "Choose the design that preserves clear responsibilities and low coupling."
+      ],
+      "whyItExists": {
+        "explanation": "Object relationships describe how objects collaborate and whether one object owns or depends on another. Distinguishing the relationship helps communicate lifecycle and responsibility.",
+        "designProblemSolved": "Without clearly modelling relationships, developers can create accidental ownership, unclear object lifecycles, and tightly coupled classes.",
+        "problemsWithoutConcept": [
+          "It becomes unclear which object creates or owns another object.",
+          "Lifecycle responsibilities can be handled inconsistently.",
+          "The design may prevent independent reuse of objects that should exist separately."
+        ]
+      },
+      "basicExample": {
+        "purpose": "Show a general association, a weaker aggregation relationship, and composition with a part created and owned by its whole.",
+        "code": "import java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.List;\n\nclass Patient {\n    String name;\n    Patient(String name) { this.name = name; }\n}\n\nclass Doctor {\n    void treat(Patient patient) {\n        System.out.println(\"Treating \" + patient.name);\n    }\n}\n\nclass Professor {\n    String name;\n    Professor(String name) { this.name = name; }\n}\n\nclass Department {\n    List<Professor> professors;\n    Department(List<Professor> professors) { this.professors = professors; }\n}\n\nclass Order {\n    private final List<OrderItem> items = new ArrayList<>();\n    void addItem(String name) { items.add(new OrderItem(name)); }\n}\n\nclass OrderItem {\n    String name;\n    OrderItem(String name) { this.name = name; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Doctor doctor = new Doctor();\n        Patient patient = new Patient(\"Asha\");\n        doctor.treat(patient);\n\n        Professor professor = new Professor(\"Ravi\");\n        Department department = new Department(Arrays.asList(professor));\n        System.out.println(department.professors.get(0).name);\n\n        Order order = new Order();\n        order.addItem(\"Book\");\n        System.out.println(\"Order item added\");\n    }\n}",
+        "output": "Treating Asha\nRavi\nOrder item added",
+        "codeExplanation": [
+          {
+            "code": "doctor.treat(patient);",
+            "explanation": "Doctor uses Patient, but neither object owns the other. This is a simple association."
+          },
+          {
+            "code": "Department(List<Professor> professors)",
+            "explanation": "The Department receives existing Professor objects. This illustrates aggregation: professors can exist independently of the department."
+          },
+          {
+            "code": "private final List<OrderItem> items = new ArrayList<>();",
+            "explanation": "Order maintains its own collection of items and does not expose direct replacement of that collection."
+          },
+          {
+            "code": "items.add(new OrderItem(name));",
+            "explanation": "Order creates and stores an OrderItem as part of adding it. This models composition-style ownership in this simple example."
+          },
+          {
+            "code": "new Order();",
+            "explanation": "Creates an order whose item collection starts empty."
+          }
+        ],
+        "beginnerNote": "Java does not have special aggregation or composition keywords. These are design relationships expressed through references, construction, visibility, and lifecycle rules. Garbage collection also means composition does not automatically guarantee immediate destruction of a part. Arrays.asList is used here so the example also works on Java 8."
+      },
+      "howItWorksDetailed": "Association is the general relationship where objects know about or use one another. Aggregation is a weaker whole-part relationship where the part has an independent lifecycle. Composition is stronger ownership: the whole controls creation or lifecycle of its parts by design. These meanings are design conventions, not enforced language-level relationship types.",
+      "learningOrder": 7,
+      "contentSections": [
+        "definition",
+        "whyItExists",
+        "problemsWithoutConcept",
+        "basicExample",
+        "howItWorksDetailed",
+        "realWorldExample",
+        "interviewTip"
       ]
     },
     {
@@ -97,6 +445,54 @@
         "Know the purpose of the concept, not only its definition.",
         "Be able to explain the concept with a small Java example.",
         "Choose the design that preserves clear responsibilities and low coupling."
+      ],
+      "whyItExists": {
+        "explanation": "A constructor establishes an object’s initial state at the moment it is created. It ensures required values can be supplied and invariants can be checked before the object is used.",
+        "designProblemSolved": "Without constructors, callers may have to remember several setup calls after object creation. Forgetting one can leave the object incomplete or invalid.",
+        "problemsWithoutConcept": [
+          "Objects may be created with missing required data.",
+          "Initialization logic may be duplicated at many call sites.",
+          "An object may be used before all required setup has happened."
+        ]
+      },
+      "basicExample": {
+        "purpose": "Require a name when creating an Employee object.",
+        "code": "class Employee {\n    String name;\n    int age;\n\n    Employee(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n\n    void display() {\n        System.out.println(name + \" - \" + age);\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Employee employee = new Employee(\"Neha\", 28);\n        employee.display();\n    }\n}",
+        "output": "Neha - 28",
+        "codeExplanation": [
+          {
+            "code": "Employee(String name, int age) {",
+            "explanation": "Declares a constructor. Its name matches the class and it has no return type."
+          },
+          {
+            "code": "this.name = name;",
+            "explanation": "Assigns the constructor parameter to the current object’s name field. this.name refers to the field."
+          },
+          {
+            "code": "this.age = age;",
+            "explanation": "Initializes the current object’s age field."
+          },
+          {
+            "code": "new Employee(\"Neha\", 28);",
+            "explanation": "Creates an Employee and passes the required initial values to the matching constructor."
+          },
+          {
+            "code": "employee.display();",
+            "explanation": "Uses the initialized object after construction."
+          }
+        ],
+        "beginnerNote": "If no constructor is declared, Java provides a default no-argument constructor. Once you declare any constructor, Java does not automatically add that no-argument constructor."
+      },
+      "howItWorksDetailed": "When new is used, Java allocates and initializes the object’s fields to default values, then executes the selected constructor. A constructor may delegate to another constructor in the same class with this(...), or invoke a superclass constructor with super(...); either constructor invocation must be the first statement. Constructors are not inherited and cannot be overridden.",
+      "learningOrder": 8,
+      "contentSections": [
+        "definition",
+        "whyItExists",
+        "problemsWithoutConcept",
+        "basicExample",
+        "howItWorksDetailed",
+        "realWorldExample",
+        "interviewTip"
       ]
     },
     {
@@ -108,6 +504,54 @@
         "Know the purpose of the concept, not only its definition.",
         "Be able to explain the concept with a small Java example.",
         "Choose the design that preserves clear responsibilities and low coupling."
+      ],
+      "whyItExists": {
+        "explanation": "Interfaces and abstract classes let developers define common contracts and shared structure without requiring callers to depend on one concrete implementation.",
+        "designProblemSolved": "Without these abstractions, callers may depend directly on concrete classes, making implementations difficult to replace, test, or extend consistently.",
+        "problemsWithoutConcept": [
+          "Callers become tightly coupled to a specific implementation.",
+          "Different classes may expose inconsistent method names for the same capability.",
+          "Shared behaviour may be copied instead of being defined once in a suitable base type."
+        ]
+      },
+      "basicExample": {
+        "purpose": "Use an interface as a contract and implement it in two different notification classes.",
+        "code": "interface NotificationSender {\n    void send(String message);\n}\n\nclass EmailSender implements NotificationSender {\n    public void send(String message) {\n        System.out.println(\"Email: \" + message);\n    }\n}\n\nclass SmsSender implements NotificationSender {\n    public void send(String message) {\n        System.out.println(\"SMS: \" + message);\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        NotificationSender sender = new EmailSender();\n        sender.send(\"Interview reminder\");\n\n        sender = new SmsSender();\n        sender.send(\"Interview reminder\");\n    }\n}",
+        "output": "Email: Interview reminder\nSMS: Interview reminder",
+        "codeExplanation": [
+          {
+            "code": "interface NotificationSender { ... }",
+            "explanation": "Defines a contract: any implementing class must provide the send operation."
+          },
+          {
+            "code": "class EmailSender implements NotificationSender",
+            "explanation": "Declares that EmailSender fulfils the NotificationSender contract."
+          },
+          {
+            "code": "public void send(String message)",
+            "explanation": "Provides the concrete email implementation of the contract."
+          },
+          {
+            "code": "NotificationSender sender = new EmailSender();",
+            "explanation": "The variable is typed to the interface, so client code depends on the contract."
+          },
+          {
+            "code": "sender = new SmsSender();",
+            "explanation": "The same variable can refer to another implementation without changing the calling code."
+          }
+        ],
+        "beginnerNote": "Use an interface when defining a capability or contract across potentially unrelated classes. Use an abstract class when related subclasses need shared instance state, constructors, or common implementation. A class can implement multiple interfaces but extend only one class."
+      },
+      "howItWorksDetailed": "An interface defines a reference type and can contain abstract methods, constants, default methods, static methods, and private helper methods (depending on Java version). An abstract class cannot be instantiated directly and may contain constructors, instance fields, concrete methods, and abstract methods. A concrete subclass must implement inherited abstract methods unless it is also abstract.",
+      "learningOrder": 9,
+      "contentSections": [
+        "definition",
+        "whyItExists",
+        "problemsWithoutConcept",
+        "basicExample",
+        "howItWorksDetailed",
+        "realWorldExample",
+        "interviewTip"
       ]
     }
   ],
