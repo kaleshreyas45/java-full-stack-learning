@@ -10,16 +10,21 @@
     "Basic methods and constructors",
     "Basic inheritance syntax"
   ],
-   "concepts": [
+  "concepts": [
     {
       "id": "oop-concept-01",
       "name": "Class",
       "definition": "A blueprint that defines the fields and methods objects of that type can have.",
       "realWorldExample": "A Car class can define colour, model, and start().",
       "javaNotes": [
-        "Know the purpose of the concept, not only its definition.",
-        "Be able to explain the concept with a small Java example.",
-        "Choose the design that preserves clear responsibilities and low coupling."
+        "A class is a blueprint; declaring a class does not by itself create an instance of that class.",
+        "A class can contain fields, methods, constructors, initializer blocks and nested types.",
+        "An object is created at runtime using new for ordinary class instances; the reference variable stores a reference, not the object itself.",
+        "If no constructor is declared, the compiler supplies a default no-argument constructor. Declaring any constructor prevents that automatic default constructor.",
+        "Instance fields receive default values, but local variables must be initialized before they are read.",
+        "Use access modifiers to control visibility: private, package-private, protected and public.",
+        "Java classes support single inheritance with extends, but can implement multiple interfaces.",
+        "An abstract class cannot be instantiated directly; a final class cannot be subclassed."
       ],
       "whyItExists": {
         "explanation": "A class gives related data and behaviour one named structure. It lets a program describe a kind of thing once and create many objects from the same design.",
@@ -72,9 +77,14 @@
       "definition": "A runtime instance of a class, with identity, state, and behaviour.",
       "realWorldExample": "car1 and car2 can be separate Car objects with different colours.",
       "javaNotes": [
-        "Know the purpose of the concept, not only its definition.",
-        "Be able to explain the concept with a small Java example.",
-        "Choose the design that preserves clear responsibilities and low coupling."
+        "An object is a runtime instance of a class and has identity, state and behaviour.",
+        "new normally allocates an object and invokes a constructor; the resulting reference can be stored in a variable.",
+        "Multiple references can point to the same object, so a mutation through one reference is visible through the others.",
+        "Assigning one reference variable to another does not clone the object.",
+        "Objects are allocated on the heap in the usual Java object model, while references may be held in local variables or fields.",
+        "When an object is no longer reachable from GC roots, it becomes eligible for garbage collection; collection timing is not guaranteed.",
+        "== compares object references for identity; equals() compares logical equality only when the class implements that meaning.",
+        "An object can be accessed through a superclass or interface reference, enabling runtime polymorphism."
       ],
       "whyItExists": {
         "explanation": "A class describes a type, but an application usually needs multiple individual entities of that type, each with its own state. Objects provide those individual runtime instances.",
@@ -135,9 +145,14 @@
       "definition": "Bundling data and the methods that operate on it while controlling access to internal state.",
       "realWorldExample": "A BankAccount keeps balance private and validates deposit and withdrawal operations.",
       "javaNotes": [
-        "Know the purpose of the concept, not only its definition.",
-        "Be able to explain the concept with a small Java example.",
-        "Choose the design that preserves clear responsibilities and low coupling."
+        "Encapsulation bundles data and the methods that operate on that data inside a class.",
+        "Fields are commonly declared private so callers cannot modify internal state directly.",
+        "Expose controlled operations through methods rather than automatically generating setters for every field.",
+        "Validation inside methods or constructors helps keep an object in a valid state.",
+        "Getters and setters are not encapsulation by themselves if they expose unrestricted access to every field.",
+        "An immutable class typically uses private final fields, controlled construction and no mutators; defensive copies may be needed for mutable field values.",
+        "Encapsulation reduces coupling because internal implementation can change without changing callers that use the public contract.",
+        "Java access modifiers support encapsulation, but package design and module boundaries also affect visibility."
       ],
       "whyItExists": {
         "explanation": "Encapsulation protects an object’s internal state and makes the object responsible for enforcing rules whenever that state changes.",
@@ -198,9 +213,14 @@
       "definition": "Exposing essential operations while hiding implementation details.",
       "realWorldExample": "A PaymentGateway exposes pay() while hiding whether payment uses UPI or a card.",
       "javaNotes": [
-        "Know the purpose of the concept, not only its definition.",
-        "Be able to explain the concept with a small Java example.",
-        "Choose the design that preserves clear responsibilities and low coupling."
+        "Objects of an abstract class cannot be created directly using the new keyword.",
+        "An abstract class can contain both abstract methods and concrete methods.",
+        "An abstract class can have constructors, instance variables, static methods and initialization blocks.",
+        "A concrete subclass must implement all inherited abstract methods; otherwise, it must also be declared abstract.",
+        "An abstract class does not need to contain an abstract method; it may be abstract simply to prevent direct instantiation.",
+        "An abstract method has no method body and must be declared in an abstract class or interface.",
+        "Abstract methods cannot be private, static or final because they are intended to be implemented or overridden by a subtype.",
+        "Abstraction exposes what a caller can do while hiding how the operation is performed; interfaces and abstract classes are common Java tools for this."
       ],
       "whyItExists": {
         "explanation": "Abstraction lets callers work with essential operations without needing to understand every implementation detail. It separates what a component promises to do from how it does it.",
@@ -257,9 +277,16 @@
       "definition": "A mechanism through which a subclass derives accessible state and behaviour from a superclass.",
       "realWorldExample": "SavingsAccount extends Account when it is genuinely a specialised kind of account.",
       "javaNotes": [
-        "Know the purpose of the concept, not only its definition.",
-        "Be able to explain the concept with a small Java example.",
-        "Choose the design that preserves clear responsibilities and low coupling."
+        "Inheritance uses extends to create an is-a relationship between a subclass and a superclass.",
+        "Java supports single inheritance of classes: a class can extend only one direct superclass.",
+        "A subclass inherits accessible members, but constructors are not inherited.",
+        "Private superclass members are not directly accessible by the subclass, although inherited behaviour can use them.",
+        "Every class ultimately derives from java.lang.Object, except Object itself.",
+        "Use super to access superclass members or invoke a superclass constructor.",
+        "Constructors execute from the superclass portion toward the subclass portion; a superclass constructor call must be the first constructor statement when written explicitly.",
+        "Java does not support multiple inheritance of classes, but a class can implement multiple interfaces.",
+        "Prefer composition over inheritance when the relationship is not genuinely is-a or when inheritance creates tight coupling.",
+        "A final class cannot be extended, and a final method cannot be overridden."
       ],
       "whyItExists": {
         "explanation": "Inheritance models an is-a relationship and allows a specialised class to reuse and extend accessible behaviour from a general class.",
@@ -320,9 +347,16 @@
       "definition": "The ability to use a common type for objects with different implementations.",
       "realWorldExample": "A Payment reference can point to UpiPayment or CardPayment.",
       "javaNotes": [
-        "Know the purpose of the concept, not only its definition.",
-        "Be able to explain the concept with a small Java example.",
-        "Choose the design that preserves clear responsibilities and low coupling."
+        "Polymorphism allows a superclass or interface reference to refer to objects of different implementing or subclass types.",
+        "Runtime polymorphism in Java is achieved through method overriding and dynamic method dispatch.",
+        "The overridden instance method that runs is selected using the actual object type at runtime, not merely the reference type.",
+        "At compile time, the reference type determines which members are accessible and which overloaded method signature is selected.",
+        "Overloading is compile-time polymorphism; it is resolved using declared argument types and overload resolution rules.",
+        "Static methods are hidden, not overridden; fields are also resolved using the reference type.",
+        "Private methods are not overridden because they are not inherited as accessible methods.",
+        "An overriding method cannot reduce visibility and cannot declare broader checked exceptions than the overridden method.",
+        "Use the @Override annotation so the compiler can detect accidental signature mismatches.",
+        "Covariant return types are allowed: an overriding method may return a subtype of the original return type."
       ],
       "whyItExists": {
         "explanation": "Polymorphism allows code to use one common parent or interface type while the actual object supplies its own behaviour.",
@@ -383,9 +417,15 @@
       "definition": "Object relationship patterns: association is a general link, aggregation is a weaker whole-part relationship, and composition expresses stronger ownership.",
       "realWorldExample": "A doctor treats patients (association); a department has professors (aggregation); an order owns its line items (composition).",
       "javaNotes": [
-        "Know the purpose of the concept, not only its definition.",
-        "Be able to explain the concept with a small Java example.",
-        "Choose the design that preserves clear responsibilities and low coupling."
+        "Association is a general relationship in which objects know about or use one another; it does not imply ownership.",
+        "A one-to-one, one-to-many or many-to-many relationship describes the multiplicity of an association.",
+        "Aggregation is a weak whole-part relationship: the part can exist independently of the whole.",
+        "Composition is a stronger ownership relationship: the whole controls the lifecycle or ownership of its parts as a design concept.",
+        "Java has no dedicated aggregation or composition keyword; these relationships are represented using object references and lifecycle rules.",
+        "In aggregation, a Department may refer to Professor objects that can exist independently of that department.",
+        "In composition, an Order may create and manage its OrderItem objects as part of its own lifecycle.",
+        "These terms describe design semantics, not something the Java compiler can infer from a field declaration alone.",
+        "Choose composition when an object should delegate work to contained collaborators instead of inheriting their implementation."
       ],
       "whyItExists": {
         "explanation": "Object relationships describe how objects collaborate and whether one object owns or depends on another. Distinguishing the relationship helps communicate lifecycle and responsibility.",
@@ -442,9 +482,16 @@
       "definition": "A special class member used to initialize a new object; it has the class name and no return type.",
       "realWorldExample": "new Employee(\"Asha\") invokes a matching Employee constructor.",
       "javaNotes": [
-        "Know the purpose of the concept, not only its definition.",
-        "Be able to explain the concept with a small Java example.",
-        "Choose the design that preserves clear responsibilities and low coupling."
+        "A constructor initializes a new object, has the same name as its class and has no return type, not even void.",
+        "Constructors can be overloaded, but they cannot be overridden or inherited.",
+        "If no constructor is declared, Java provides a default no-argument constructor; once any constructor is declared, that default is not generated.",
+        "If a constructor does not explicitly invoke this(...) or super(...), the compiler inserts an implicit no-argument super() call when applicable.",
+        "This implicit super() causes a compile-time error if the superclass has no accessible no-argument constructor.",
+        "This(...) invokes another constructor in the same class; super(...) invokes a superclass constructor. Either invocation must be the first statement in a constructor.",
+        "A constructor can be private, for example to control object creation in a utility class or singleton design.",
+        "Constructors are not inherited, and a subclass constructor must initialize its superclass portion.",
+        "Constructors cannot be abstract, static or final.",
+        "Instance field initializers and instance initializer blocks run as part of object initialization before the constructor body for that class."
       ],
       "whyItExists": {
         "explanation": "A constructor establishes an object’s initial state at the moment it is created. It ensures required values can be supplied and invariants can be checked before the object is used.",
@@ -501,9 +548,17 @@
       "definition": "Both define abstractions; interfaces primarily express contracts, while abstract classes can also share state and implementation.",
       "realWorldExample": "EmailSender and SmsSender implement NotificationSender; AbstractReport can share report workflow.",
       "javaNotes": [
-        "Know the purpose of the concept, not only its definition.",
-        "Be able to explain the concept with a small Java example.",
-        "Choose the design that preserves clear responsibilities and low coupling."
+        "An interface defines a contract that a class can implement; an abstract class can define both shared state and shared implementation.",
+        "A class can implement multiple interfaces but can extend only one class.",
+        "An interface cannot be instantiated directly and does not have constructors or ordinary instance fields.",
+        "Interface fields are implicitly public, static and final, so they are constants.",
+        "Interface abstract methods are implicitly public; implementing methods must be public.",
+        "Interfaces can also declare default and static methods, and private helper methods (Java 9+) with method bodies.",
+        "An abstract class can have constructors, instance fields, instance methods with state, and methods with different access levels.",
+        "An abstract class may implement an interface without implementing every method, provided the class itself remains abstract.",
+        "If two implemented interfaces provide conflicting default methods, the implementing class must resolve the conflict by overriding the method.",
+        "Use an interface for a capability or contract that unrelated classes may share; use an abstract class when related classes need common state or base implementation.",
+        "Prefer programming to an interface type so implementations can be replaced and tested with less coupling."
       ],
       "whyItExists": {
         "explanation": "Interfaces and abstract classes let developers define common contracts and shared structure without requiring callers to depend on one concrete implementation.",
